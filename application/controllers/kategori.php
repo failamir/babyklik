@@ -163,10 +163,11 @@ class Kategori extends Admin_Controller {
 	
 	public function generate_code()
 	{
-		$prefix = "KTG";
+		$prefix = "BK0";
 		$code = "01";
 		
 		$last = $this->kategori_model->get_last();
+		// var_dump($last);die;
 		if(!empty($last))
 		{
 			$number = substr($last->id_kategori,3,2) +1;

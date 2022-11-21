@@ -28,13 +28,15 @@
 	<script src="<?php echo base_url('assets/template/plugins/fastclick/fastclick.min.js')?>"></script>
     <script src="<?php echo base_url('assets/template/dist/js/app.min.js')?>"></script>
 </head>
-  <body class="hold-transition skin-blue layout-boxed sidebar-mini">
+  <body class="hold-transition skin-red layout-boxed sidebar-mini">
     <div class="wrapper">
       <header class="main-header">
         <!-- Logo -->
         <a href="" class="logo">
           <span class="logo-mini"><b>BK</b></span>
-          <span class="logo-lg"><b>BABYKLIK</b></span>
+          <span class="logo-lg">
+          <img src="<?php echo base_url('assets/images/logo.jpeg')?>" width="50" height="50" alt="" srcset="">  
+          <b>BABYKLIK</b></span>
         </a>
 		
         <nav class="navbar navbar-static-top" role="navigation">
