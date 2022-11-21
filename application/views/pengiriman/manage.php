@@ -235,6 +235,7 @@ function pilih(id,nama,other,other2)
 	{
 		$("input[name='id_kurir']").val(id);
 		$("input[name='kurir']").val(nama);
+		$("input[name='no_kendaraan']").val(other);
 	}
 }
 
@@ -332,7 +333,7 @@ function deleteBarang(a)
 							<div class="form-group">
 								<label for="no_kendaraan" class="col-sm-2 control-label">No Kendaraan</label>
 								<div class="col-sm-4">
-								  <input type="text" class="form-control"  required="required" id="no_kendaraan"  name="no_kendaraan" placeholder="input no kendaraan" value="<?php echo $data->no_kendaraan; ?>"  >
+									<input type="text" class="form-control" id="no_kendaraan"  name="no_kendaraan" value="<?php echo $data->no_kendaraan; ?>" readonly>
 								</div>
 							</div>
 							<div class="form-group">

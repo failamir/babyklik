@@ -174,6 +174,7 @@ class Ajax extends Admin_Controller {
 						   <tr>
 								<th>ID KURIR</th>
 								<th>NAMA</th>
+								<th>NO KENDARAAN</th>
 								<th>JENIS KELAMIN</th>
 								<th>TELEPON</th>
 								<th>ALAMAT</th>
@@ -194,12 +195,13 @@ class Ajax extends Admin_Controller {
 				$content .= "<tr>
 								<td>".$dt['id_kurir']."</td>
 								<td>".$dt['nama']."</td>
+								<td>".$dt['no_kendaraan']."</td>
 								<td>".$dt['jenis_kelamin']."</td>
 								<td>".$dt['telepon']."</td>
 								<td>".$dt['alamat']."</td>";
 
 				
-				$content .="<td><button type='button' class='btn btn-success btn-sm' href='#' onClick='pilih(&quot;".$dt['id_kurir']."&quot;,&quot;".$dt['nama']."&quot;)' data-dismiss='modal'>pilih</button></td>";
+				$content .="<td><button type='button' class='btn btn-success btn-sm' href='#' onClick='pilih(&quot;".$dt['id_kurir']."&quot;,&quot;".$dt['nama']."&quot;,&quot;".$dt['no_kendaraan']."&quot;)' data-dismiss='modal'>pilih</button></td>";
 				
 				
 				$content  .= "</tr>";
