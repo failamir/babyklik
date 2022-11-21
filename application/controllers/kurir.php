@@ -48,6 +48,7 @@ class Kurir extends Admin_Controller {
 		$data['data'] = new StdClass();
 		$data['data']->id_kurir = "";
 		$data['data']->nama = "";
+		$data['data']->no_kendaraan = "";
 		$data['data']->telepon = "";
 		$data['data']->jenis_kelamin = "";
 		$data['data']->alamat = "";
