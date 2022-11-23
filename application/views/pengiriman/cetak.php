@@ -17,7 +17,7 @@
 	{
 		border:1px solid gray;
 		border-top:4px solid gray;
-		height:180px;
+		height:100%;
 		padding-top:5px;
 	}
 	.border-bottom
@@ -48,35 +48,46 @@
 <div class="content-wrapper print resi">
 	<table>
 		<tr>
-			<td width='450' align="center" valign='top'>
-				<img class="img-logo" src="<?php echo base_url("assets/images")."/logo.jpg"; ?>" width="100" height="90" />
+			<td width='500' align="center" valign='top'>
+				<img class="img-logo" src="<?php echo base_url('assets/images/logo.jpeg')?>" width="100" height="90" />
 				<div class='header-pt'>PT. Triono Putra</div>
-				<div class='header-address'>Jl. PLN Raya</div>
-				<div class='header-address'>GANDUL - CINERE</div>
-				<div class='header-address'>Depok 16512, Indonesia</div>
+				<div class='header-address'>Jalan Pengasinan Raya II</div>
+				<div class='header-address'>No. 3A-B RT 02 RW 02, Pengasinan,</div>
+				<div class='header-address'>Rawalumbu, Bekasi, Jawa Barat 17115</div>
 			</td>
 			<td valign='top'>
 				<img class="img-qrcode" src="<?php echo base_url("export")."/".$data->id_pengiriman.".png"?>" width="90" height="90" />
-				<div >
-					Depok, <?php echo date('d M Y',strtotime($data->tanggal)); ?>
+				<div>
+					Tgl   : Depok, <?php echo date('d M Y',strtotime($data->tanggal)); ?>
 				</div>
-				<div class='mt10'>
+				<div class="mt10">
+					PO No : <?php echo $data->no_po; ?>
+				</div>
+				<div class='mt5'>
+					SJ No : <?php echo $data->id_pengiriman; ?>
+				</div>
+			</td>
+		</tr>
+	</table>
+	<table style="border-top:4px solid gray; margin-top:15px; width:100%;">
+		<tr>
+			<td align="center" style="padding-top:5px;">
+				<div class='header-pt'>SURAT JALAN</div>
+			</td>
+		<tr>
+		<tr>
+			<td style="padding-bottom:5px;">
+				<div>
 					KEPADA Yth.
 				</div>
 				<div>
 					<?php echo $data->pelanggan; ?>
 				</div>
-				<div class='mt10'>
+				<div>
 					<?php echo $data->alamat; ?>
 				</div>
 			</td>
 		</tr>
-		<tr>
-			<td rowspan="2">
-				<div class='header-pt'>SURAT JALAN No. <?php echo $data->id_pengiriman; ?></div>
-				<div class="mb10">Harap diterima dengan baik barang2 tsb. Dibawah ini</div>
-			</td>
-		<tr>
 	</table>
 	<div class='table-wrapper'>
 		<table style="width:100%"  style="mt10"  cellpadding='5' cellspacing='0'>
@@ -104,29 +115,30 @@
 			</tr>
 			<?php $i++; ?>
 			<?php endforeach ?>
-			
+			<tr class="">
+				<td colspan = '5' class="border-top"><div style='text-align:right;'>Total : </div></td>
+				<td align="center" class="border-top">-</td>
+			</tr>
 			<?php endif ?>
 		</tbody>
 		</table>
 	</div>
 	<table style="width:100%">
 		<tr>
-			<td valign='top' style="width:55%" >
+			<td valign='top' colspan="2" align="center">
 				<div class='mt10'>
+					Admin <br><br> (_________)
+				</div>
+			</td>
+			<td valign='top' colspan="2" align="center">
+				<div class='mt10'>
+					Pengirim <br><br> (_________) <br>
 					Kendaraan No. <?php echo $data->no_kendaraan; ?>
 				</div>
-				<div class='mt10'>
-					PO No. <?php echo $data->no_po; ?>
-				</div>
 			</td>
-			<td valign='top' style="width:30%">
+			<td valign='top' colspan="2" align="center">
 				<div class='mt10'>
-					Diterima Oleh: 
-				</div>
-			</td>
-			<td valign='top' style="width:15%">
-				<div class='mt10'>
-					Terima Kasih <br> Hormat Kami
+					Penerima <br><br> (_________)
 				</div>
 			</td>
 		</tr>
