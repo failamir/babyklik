@@ -51,7 +51,7 @@ $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
-$db['default']['password'] = '';
+$db['default']['password'] = 'root';
 $db['default']['database'] = 'pengiriman';
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
