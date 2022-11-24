@@ -50,6 +50,7 @@ class Barang extends Admin_Controller {
 		$data['data']->id_kategori = "";
 		$data['data']->satuan = "";
 		$data['data']->harga_satuan = "";
+		$data['data']->deskripsi = "";
 		$data['data']->autocode = $this->generate_code();
 		
 		if($id)
@@ -98,6 +99,11 @@ class Barang extends Admin_Controller {
 				$data['harga_satuan'] = $post['harga_satuan'];
 			else
 				$error[] = "harga satuan tidak boleh kosong"; 
+
+				if(!empty($post['deskripsi']))
+				$data['deskripsi'] = $post['deskripsi'];
+			else
+				$error[] = "deskripsi tidak boleh kosong"; 
 			
 		
 			if(empty($error))
