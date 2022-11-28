@@ -115,7 +115,7 @@
 			<?php endforeach ?>
 			<tr class="">
 				<td colspan = '5' class="border-top"><div style='text-align:right;'>Total : </div></td>
-				<td align="center" class="border-top">-</td>
+				<td align="center" class="border-top"><?php echo $data->total_harga; ?></td>
 			</tr>
 			<?php endif ?>
 		</tbody>
