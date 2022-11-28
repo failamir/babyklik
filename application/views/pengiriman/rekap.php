@@ -62,6 +62,7 @@
 											  <div class="input-group-addon glyphicon glyphicon-calendar"></div>
 											</div>
 										</div>
+										<p>
 										<div class="col-sm-3">
 										   <select class="form-control input-sm" name="status">
 										     <option value="all" <?php echo $this->input->get("status") == "all" ? ' selected' : '';?> >-status-</option>
@@ -70,7 +71,18 @@
 											  <option value="3" <?php echo $this->input->get("status") == "3" ? ' selected' : '';?> >Ditolak</option>
 											  <option value="4" <?php echo $this->input->get("status") == "4" ? ' selected' : '';?> >Diterima sebagian</option>
 											</select>
+											<!-- <input type="checkbox" id="vehicle1" name="status" value="all">
+											<label for="vehicle1"> Semua</label><br>
+											<input type="checkbox" id="vehicle1" name="status" value="1">
+											<label for="vehicle1"> Dikirim</label><br>
+											<input type="checkbox" id="vehicle2" name="status" value="2">
+											<label for="vehicle2"> Diterima</label><br>
+											<input type="checkbox" id="vehicle3" name="status" value="3">
+											<label for="vehicle3"> Ditolak</label><br>
+											<input type="checkbox" id="vehicle3" name="status" value="4">
+											<label for="vehicle3"> Diterima sebagian</label><br> -->
 										</div>
+										</p>
 										<div class="col-md-2">
 											<button type="submit" class="btn btn-success" name="cari" value="cari">show</button>
 										</div>

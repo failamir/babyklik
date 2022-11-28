@@ -43,6 +43,8 @@
 							<th>NAMA</th>
 							<th>KATEGORI</th>
 							<th>SATUAN</th>
+							<th>HARGA SATUAN</th>
+							<!-- <th>DESKRIPSI</th> -->
 							<th>ACTION</th>
 						  </tr>
 						</thead>
@@ -53,6 +55,8 @@
 							<td><?php echo $dt['nama'];?></td>
 							<td><?php echo $dt['kategori'];?></td>
 							<td><?php echo $dt['satuan'];?></td>
+							<td><?php echo $dt['harga_satuan'];?></td>
+							<!-- <td><?php echo $dt['deskripsi'];?></td> -->
 							<th>
 								<a class="btn btn-warning btn-xs" href="<?php echo site_url("barang/manage")."/". $dt['id_barang']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
 								<a class="btn btn-danger btn-xs" data-href="<?php echo site_url("barang/delete")."/". $dt['id_barang'];?>" data-toggle="modal" data-target="#confirm-delete" href="#"><span class="glyphicon glyphicon-remove"></span></a>

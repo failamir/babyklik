@@ -40,6 +40,12 @@
 								</div>
 							</div>
 							<div class="form-group">
+								<label for="no_kendaraan" class="col-sm-2 control-label">No Kendaraan</label>
+								<div class="col-sm-4">
+								  <input type="text" class="form-control"  required="required" id="no_kendaraan"  name="no_kendaraan" value="<?php echo $data->no_kendaraan; ?>"  >
+								</div>
+							</div>
+							<div class="form-group">
 								<label for="jenis_kelamin" class="col-sm-2 control-label">Jenis Kelamin</label>
 								<div class="col-sm-3">
 								   <select class="form-control input-sm" name="jenis_kelamin">

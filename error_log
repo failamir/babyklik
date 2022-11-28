@@ -1,0 +1,4 @@
+[21-Nov-2022 12:30:02 Asia/Jakarta] PHP Deprecated:  Required parameter $message follows optional parameter $level in /home/vert8219/public_html/babyklik/system/core/Common.php on line 347
+[21-Nov-2022 12:30:02 Asia/Jakarta] PHP Deprecated:  Required parameter $message follows optional parameter $level in /home/vert8219/public_html/babyklik/system/core/Common.php on line 347
+[21-Nov-2022 12:30:02 Asia/Jakarta] PHP Fatal error:  __autoload() is no longer supported, use spl_autoload_register() instead in /home/vert8219/public_html/babyklik/application/config/config.php on line 360
+[21-Nov-2022 12:30:02 Asia/Jakarta] PHP Fatal error:  __autoload() is no longer supported, use spl_autoload_register() instead in /home/vert8219/public_html/babyklik/application/config/config.php on line 360

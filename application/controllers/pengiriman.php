@@ -44,7 +44,7 @@ class Pengiriman extends Admin_Controller {
 	{
 		$this->cekLoginStatus("staff gudang",true);
 		
-		$data['title'] = "FORM PENGIRIMAN";
+		$data['title'] = "FORM PESANAN";
 		$data['layout'] = "pengiriman/manage";
 
 		$data['data'] = new StdClass();
@@ -64,7 +64,7 @@ class Pengiriman extends Admin_Controller {
 		$data['data']->no_po = "";
 		$data['data']->no_kendaraan = "";
 		$data['data']->autocode = $this->generate_code();
-		
+		// var_dump($data['data']->autocode);die;
 		if($id)
 		{
 			$dt =  $this->pengiriman_model->get_by("pg.id_pengiriman",$id,true);
@@ -153,8 +153,8 @@ class Pengiriman extends Admin_Controller {
 			
 			if(empty($error))
 			{
-				$save = $this->pengiriman_model->save($id,$data,false);
 				
+				// var_dump($post);die;
 				$datailkode = $post['detail']['id_barang'];
 				$datailjumlah = $post['detail']['qty'];
 
@@ -162,7 +162,7 @@ class Pengiriman extends Admin_Controller {
 				{
 					$this->pengiriman_model->remove_detail($id);
 				}
-				
+
 				foreach($datailkode as $key => $val)
 				{
 					
@@ -173,8 +173,26 @@ class Pengiriman extends Admin_Controller {
 						
 					$detail['id_barang'] = $val;
 					$detail['qty'] = $datailjumlah[$val];
+					$data['total_harga'] = $this->pengiriman_model->get_harga($detail['id_barang'])[0]->harga_satuan * $detail['qty'];
+				}
+				$save = $this->pengiriman_model->save($id,$data,false);
+
+				foreach($datailkode as $key => $val)
+				{
+					
+					if(empty($id))
+						$detail['id_pengiriman'] = $data['id_pengiriman'];
+					else
+						$detail['id_pengiriman'] = $id;
+						
+					$detail['id_barang'] = $val;
+					$detail['qty'] = $datailjumlah[$val];
+					
+					
 					$this->pengiriman_model->save_detail($detail);
 				}
+				// var_dump($data['total_harga']);
+				// die;
 				
 				
 				$this->session->set_flashdata('admin_save_success', "data berhasil disimpan");
@@ -228,11 +246,14 @@ class Pengiriman extends Admin_Controller {
 		$code = "001";
 		
 		$last = $this->pengiriman_model->get_last();
+		// var_dump($last);
 		if(!empty($last))
 		{
-			$number = substr($last->id_pengiriman,10,3) +1;
+			$number = substr($last->id_pengiriman,10,3) +2;
+			// var_dump($number);
 			$code = str_pad($number, 3, "0", STR_PAD_LEFT);
 		}
+		// var_dump($prefix.$code);die;
 		return $prefix.$code;
 	}
 	
@@ -242,6 +263,35 @@ class Pengiriman extends Admin_Controller {
 		
 		$data['title'] = "CETAK PENGIRIMAN";
 		$data['layout'] = "pengiriman/cetak";
+		
+		$this->load->library("qrcodeci");
+		if($id)
+		{
+			$dt =  $this->pengiriman_model->get_by("pg.id_pengiriman",$id,true);
+			if($dt)
+			{
+				$this->qrcodeci->generate($dt->id_pengiriman);
+				$data['data'] = $dt;
+				$this->load->view('blank',$data);
+			}
+			else
+			{
+				redirect("pengiriman");
+			}
+			
+		}
+		else
+		{
+			redirect("pengiriman");
+		}
+	}
+
+	public  function invoice($id)
+	{
+		$this->cekLoginStatus("staff gudang",true);
+		
+		$data['title'] = "CETAK INVOICE";
+		$data['layout'] = "pengiriman/invoice";
 		
 		$this->load->library("qrcodeci");
 		if($id)

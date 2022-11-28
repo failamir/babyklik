@@ -43,6 +43,7 @@
 						  <tr>
 							<th>ID KURIR</th>
 							<th>NAMA</th>
+							<th>NO KENDARAAN</th>
 							<th>JENIS KELAMIN</th>
 							<th>TELEPON</th>
 							<th>ALAMAT</th>
@@ -54,6 +55,7 @@
 						  <tr>
 							<td><?php echo $dt['id_kurir'];?></td>
 							<td><?php echo $dt['nama'];?></td>
+							<td><?php echo $dt['no_kendaraan'];?></td>
 							<td><?php echo $dt['jenis_kelamin'];?></td>
 							<td><?php echo $dt['telepon'];?></td>
 							<td><?php echo $dt['alamat'];?></td>

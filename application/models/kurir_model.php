@@ -18,6 +18,7 @@ class Kurir_Model extends CI_Model
 			{
 				  $cond[] = "(lower(".$this->key.") like '%" . $this->db->escape_str(strtolower($filter->keyword)) . "%'
 								 or lower(nama) like '%" . $this->db->escape_str(strtolower($filter->keyword)) . "%'
+								 or lower(no_kendaraan) like '%" . $this->db->escape_str(strtolower($filter->keyword)) . "%'
 								 or lower(telepon) like '%" . $this->db->escape_str(strtolower($filter->keyword)) . "%'
 								 or lower(jenis_kelamin) like '%" . $this->db->escape_str(strtolower($filter->keyword)) . "%'
 								)";

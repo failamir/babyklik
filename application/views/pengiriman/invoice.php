@@ -57,35 +57,33 @@
 			</td>
 			<td valign='top'>
 				<img class="img-qrcode" src="<?php echo base_url("export")."/".$data->id_pengiriman.".png"?>" width="90" height="90" />
-				<div>
-					Tgl   : Depok, <?php echo date('d M Y',strtotime($data->tanggal)); ?>
-				</div>
-				<div class="mt10">
-					PO No : <?php echo $data->no_po; ?>
-				</div>
-				<div class='mt5'>
-					SJ No : <?php echo $data->id_pengiriman; ?>
-				</div>
 			</td>
 		</tr>
 	</table>
 	<table style="border-top:4px solid gray; margin-top:15px; width:100%;">
 		<tr>
-			<td align="center" style="padding-top:5px;">
-				<div class='header-pt'>SURAT JALAN</div>
+			<td colspan = '5' align="center" style="padding-top:5px;">
+				<div class='header-pt'>INVOICE</div>
 			</td>
 		<tr>
 		<tr>
-			<td style="padding-bottom:5px;">
-				<div>
+            <td style="padding-bottom:5px;">
+                <div>
 					KEPADA Yth.
 				</div>
-				<div>
-					<?php echo $data->pelanggan; ?>
+				<div style="padding-bottom: 2px;">
+					<b><?php echo $data->pelanggan; ?></b>
 				</div>
-				<div>
+				<div style="width: 60%;">
 					<?php echo $data->alamat; ?>
 				</div>
+			</td>
+            <td >
+                <table>
+                    <tr class='header-pt'><td>No Invoice</td><td>:</td><td><?php echo $data->id_pengiriman; ?></td></tr>
+                    <tr class='header-address'><td>Tanggal</td><td>:</td><td>Depok, <?php echo date('d M Y',strtotime($data->tanggal)); ?></td></tr>
+                    <tr class='header-address'><td>No PO</td><td>:</td><td><?php echo $data->no_po; ?></td></tr>
+                </table>
 			</td>
 		</tr>
 	</table>
@@ -117,7 +115,7 @@
 			<?php endforeach ?>
 			<tr class="">
 				<td colspan = '5' class="border-top"><div style='text-align:right;'>Total : </div></td>
-				<td align="center" class="border-top">-</td>
+				<td align="center" class="border-top"><?php echo $data->total_harga; ?></td>
 			</tr>
 			<?php endif ?>
 		</tbody>
@@ -133,7 +131,6 @@
 			<td valign='top' colspan="2" align="center">
 				<div class='mt10'>
 					Pengirim <br><br> (_________) <br>
-					Kendaraan No. <?php echo $data->no_kendaraan; ?>
 				</div>
 			</td>
 			<td valign='top' colspan="2" align="center">

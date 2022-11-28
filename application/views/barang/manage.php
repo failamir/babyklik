@@ -67,6 +67,13 @@
 									<input type="text" class="form-control" required="required" id="harga_satuan" name="harga_satuan" placeholder="harga per satuan" value="<?php echo $data->harga_satuan; ?>">
 								</div>
 							</div>
+
+							<div class="form-group">
+								<label for="deskripsi" class="col-sm-2 control-label">deskripsi</label>
+								<div class="col-sm-4">
+									<textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="deskripsi" value="<?php echo $data->deskripsi; ?>"></textarea>
+								</div>
+							</div>
 						</div>
 
 						<div class="box-footer">

@@ -48,6 +48,7 @@ class Kurir extends Admin_Controller {
 		$data['data'] = new StdClass();
 		$data['data']->id_kurir = "";
 		$data['data']->nama = "";
+		$data['data']->no_kendaraan = "";
 		$data['data']->telepon = "";
 		$data['data']->jenis_kelamin = "";
 		$data['data']->alamat = "";
@@ -83,6 +84,11 @@ class Kurir extends Admin_Controller {
 			else
 				$error[] = "nama tidak boleh kosong"; 
 			
+			if(!empty($post['no_kendaraan']))
+				$data['no_kendaraan'] = $post['no_kendaraan'];
+			else
+				$error[] = "no kendaraan tidak boleh kosong"; 
+
 			if(!empty($post['telepon']))
 				$data['telepon'] = $post['telepon'];
 			else

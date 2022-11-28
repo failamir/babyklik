@@ -48,6 +48,7 @@ class Pelanggan extends Admin_Controller {
 		$data['data'] = new StdClass();
 		$data['data']->id_pelanggan = "";
 		$data['data']->nama = "";
+		$data['data']->nama_toko = "";
 		$data['data']->telepon = "";
 		$data['data']->alamat = "";
 		$data['data']->autocode = $this->generate_code();
@@ -81,6 +82,11 @@ class Pelanggan extends Admin_Controller {
 				$data['nama'] = $post['nama'];
 			else
 				$error[] = "nama tidak boleh kosong"; 
+
+				if(!empty($post['nama_toko']))
+				$data['nama_toko'] = $post['nama_toko'];
+			else
+				$error[] = "nama_toko tidak boleh kosong"; 
 			
 			if(!empty($post['telepon']))
 				$data['telepon'] = $post['telepon'];

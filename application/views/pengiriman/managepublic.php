@@ -283,16 +283,29 @@ function deleteBarang(a)
 		<div class="row">
 			<div class="col-md-12">
 				<div class="box box-primary">
-					<form  class="form-horizontal" method="post" action="<?php echo site_url("pengiriman/save")?>"  >
+					<form  class="form-horizontal" method="post" action="<?php echo site_url("pengirimanupdate/save")?>"  >
 						<input type="hidden" class="form-control" id="id" name="id" value="<?php echo $data->id_pengiriman; ?>" >
 						<div class="box-body">
 							<div class="form-group">
-								<label for="id_pengiriman" class="col-sm-2 control-label">ID Pengiriman</label>
+								<label for="id_pengiriman" class="col-sm-2 control-label">QR Code</label>
 								<div class="col-sm-4">
-									<input type="text" class="form-control" id="id_pengiriman"  name="id_pengiriman" value="<?php echo $data->id_pengiriman == "" ? $data->autocode : $data->id_pengiriman; ?>"  readonly   >
+									<input type="hidden" name="public" value="public">
+									<input type="text" class="form-control" id="id_pengiriman"  name="id_pengiriman" value="<?php //echo $data->id_pengiriman == "" ? $data->autocode : $data->id_pengiriman; ?>"    >
 								</div>
 							</div>
 							<div class="form-group">
+								<label for="penerima" class="col-sm-2 control-label">Penerima</label>
+								<div class="col-sm-7">
+									<input type="text" class="form-control" id="penerima"  name="penerima" value="<?php //echo $data->penerima; ?>" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="keterangan" class="col-sm-2 control-label">Keterangan</label>
+								<div class="col-sm-7">
+									 <textarea class="form-control"  rows="3" id="keterangan" name="keterangan"><?php //echo $data->keterangan; ?></textarea>
+								</div>
+							</div>
+							<!-- <div class="form-group">
 								<label for="tanggal" class="col-sm-2 control-label">Tanggal</label>
 								<div class="col-sm-4">
 								  <input type="text" required="required" class="form-control datepicker" id="tanggal" data-date-format="dd/mm/yyyy" placeholder="select tanggal" name="tanggal" value="<?php echo $data->tanggal != "" ? date("d/m/Y",strtotime($data->tanggal)) : date("d/m/Y"); ?>" >
@@ -353,21 +366,10 @@ function deleteBarang(a)
 									  <option value="4" <?php echo $data->status == "4" ? ' selected' : '';?> >Diterima sebagian</option>
 									</select>
 								</div>
-							</div>
-							<div class="form-group">
-								<label for="penerima" class="col-sm-2 control-label">Penerima</label>
-								<div class="col-sm-7">
-									<input type="text" class="form-control" id="penerima"  name="penerima" value="<?php echo $data->penerima; ?>" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="keterangan" class="col-sm-2 control-label">Keterangan</label>
-								<div class="col-sm-7">
-									 <textarea class="form-control"  rows="3" id="keterangan" name="keterangan"><?php echo $data->keterangan; ?></textarea>
-								</div>
-							</div>
-							<?php endif;	?>
+							</div>-->
 							
+							<?php endif;	?>
+							<!--
 						</div>
 						
 						<div class="row">
@@ -384,7 +386,7 @@ function deleteBarang(a)
 										<th>Kode Barang</th>
 										<th>Nama Barang</th>
 										<th>Kategori</th>
-										<th>Harga Satuan</th>
+										<th>Satuan</th>
 										<th>Jumlah</th>
 										<th>Action</th>
 									  </tr>
@@ -394,7 +396,7 @@ function deleteBarang(a)
 										<?php $barang = explode("===",$data->barang); ?>
 										
 										<?php foreach($barang as $br): ?>
-										<?php $b = explode("|",$br); ?>
+										<?php $b = explode("|",$br) ?>
 										<tr>
 											<td><input type='hidden' name='detail[id_barang][]' value="<?php echo $b[0]; ?>"><?php echo $b[0]; ?></td>
 											<td><?php echo $b[1]; ?></td>
@@ -412,13 +414,13 @@ function deleteBarang(a)
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 						
 						<div class="box-footer">
-							<button type="submit" class="btn btn-primary" name="action" value="save">save</button>
-							<button type="submit" class="btn btn-success" name="action" value="saveexit">save & exit</button>
+							<button type="submit" class="btn btn-primary" name="action" value="save">Update</button>
+							<!-- <button type="submit" class="btn btn-success" name="action" value="saveexit">save & exit</button> -->
 							<button type="reset" class="btn btn-warning">reset</button>
-							<a  href="<?php echo site_url("pengiriman")?>" class="btn btn-danger">cancel</a>
+							<!-- <a  href="<?php echo site_url("pengiriman")?>" class="btn btn-danger">cancel</a> -->
 						</div>
 					</form>
 					
@@ -505,7 +507,7 @@ function deleteBarang(a)
 							<button type="button"  class="btn btn-primary btn-sm search-kurir">Search</button>
 						</form>
 					</div>
-				</div>
+				</div> 
 				
 					<div class="table-ajax-kurir">
 					</div>
