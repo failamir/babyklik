@@ -50,15 +50,9 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-<<<<<<< HEAD
 $db['default']['username'] = 'vert8219_all';
 $db['default']['password'] = '@dmin.1618';
 $db['default']['database'] = 'vert8219_baby';
-=======
-$db['default']['username'] = 'root';
-$db['default']['password'] = 'root';
-$db['default']['database'] = 'babyklik';
->>>>>>> ca2c04366f34e6f4a4e5fdced3083e084a5a6576
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

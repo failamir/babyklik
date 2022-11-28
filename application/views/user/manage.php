@@ -50,8 +50,8 @@
 								<div class="col-sm-4">
 								   <select class="form-control" name="level" required="required">
 									   <option value="1" <?php echo $data->level == "1" ? ' selected' : '';?> >Administrator</option>
-									   <option value="2" <?php echo $data->level == "2" ? ' selected' : '';?> >Finance</option>
-									   <option value="3" <?php echo $data->level == "3" ? ' selected' : '';?> >Staff Gudang</option>									   
+									   <option value="2" <?php echo $data->level == "2" ? ' selected' : '';?> >Owner</option>
+									   <option value="3" <?php echo $data->level == "3" ? ' selected' : '';?> >Gudang</option>									   
 									</select>
 								</div>
 							</div>
