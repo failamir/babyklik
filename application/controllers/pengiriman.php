@@ -268,6 +268,35 @@ class Pengiriman extends Admin_Controller {
 			redirect("pengiriman");
 		}
 	}
+
+	public  function invoice($id)
+	{
+		$this->cekLoginStatus("staff gudang",true);
+		
+		$data['title'] = "CETAK INVOICE";
+		$data['layout'] = "pengiriman/invoice";
+		
+		$this->load->library("qrcodeci");
+		if($id)
+		{
+			$dt =  $this->pengiriman_model->get_by("pg.id_pengiriman",$id,true);
+			if($dt)
+			{
+				$this->qrcodeci->generate($dt->id_pengiriman);
+				$data['data'] = $dt;
+				$this->load->view('blank',$data);
+			}
+			else
+			{
+				redirect("pengiriman");
+			}
+			
+		}
+		else
+		{
+			redirect("pengiriman");
+		}
+	}
 	
 	public function rekap()
 	{

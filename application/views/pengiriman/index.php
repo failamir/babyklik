@@ -70,6 +70,7 @@
 							?>
 							<td><?php echo $status;?></td>
 							<th>
+							    <a class="btn btn-info btn-xs" target="blank" href="<?php echo site_url("pengiriman/invoice")."/". $dt['id_pengiriman']; ?>"><span class="glyphicon glyphicon-print"></span></a>
 							    <a class="btn btn-primary btn-xs" target="blank" href="<?php echo site_url("pengiriman/cetak")."/". $dt['id_pengiriman']; ?>"><span class="glyphicon glyphicon-print"></span></a>
 								<a class="btn btn-warning btn-xs" href="<?php echo site_url("pengiriman/manage")."/". $dt['id_pengiriman']; ?>"><span class="glyphicon glyphicon-edit"></span></a>
 								<a class="btn btn-danger btn-xs" data-href="<?php echo site_url("pengiriman/delete")."/". $dt['id_pengiriman'];?>" data-toggle="modal" data-target="#confirm-delete" href="#"><span class="glyphicon glyphicon-remove"></span></a>
