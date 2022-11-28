@@ -49,8 +49,8 @@ class Pengirimanupdate extends CI_Controller {
 
 	public function index()
 	{
-		$data['title'] = "FORM PENGIRIMAN";
-		$data['layout'] = "pengiriman/manage";
+		$data['title'] = "FORM Update PENGIRIMAN";
+		$data['layout'] = "pengiriman/managepublic";
 
 		$data['data'] = new StdClass();
 		$data['data']->id_pengiriman = "";
@@ -70,139 +70,150 @@ class Pengirimanupdate extends CI_Controller {
 		$data['data']->no_kendaraan = "";
 		// $data['data']->autocode = $this->generate_code();
 		
-		if($id)
-		{
-			$dt =  $this->pengiriman_model->get_by("pg.id_pengiriman",$id,true);
-			if(!empty($dt))
-				$data['data'] = $dt;
-		}
+		// if($id)
+		// {
+		// 	$dt =  $this->pengiriman_model->get_by("pg.id_pengiriman",$id,true);
+		// 	if(!empty($dt))
+		// 		$data['data'] = $dt;
+		// }
 		$data['data']->public = true;
 		$this->load->view('templatepublic',$data);
 	}
 	
-	// public function save()
-	// {
-	// 	$this->cekLoginStatus("staff gudang",true);
+	public function save()
+	{
+		// $this->cekLoginStatus("staff gudang",true);
 		
-	// 	$data = array();
-	// 	$post = $this->input->post();
+		$data = array();
+		$post = $this->input->post();
 		
-	// 	if($post)
-	// 	{
-	// 		$error = array();
-	// 		$id = $post['id'];
-			
-	// 		if(!empty($post['id_pengiriman']))
-	// 			$data['id_pengiriman'] = $post['id_pengiriman'];
-	// 		else
-	// 			$error[] = "id tidak boleh kosong"; 
+		if($post)
+		{
+			$dt =  $this->pengiriman_model->get_by("pg.id_pengiriman",$post['id_pengiriman'],true);
+			$error = array();
+			$id = $dt->id_pengiriman;
+			// var_dump($dt);
+			if(!empty($post['id_pengiriman']))
+				$data['id_pengiriman'] = $post['id_pengiriman'];
+			else
+				$error[] = "id tidak boleh kosong"; 
 				
-	// 		if(!empty($post['tanggal']))
-	// 			$data['tanggal'] =  DateTime::createFromFormat('d/m/Y', $post['tanggal'])->format('Y-m-d');
-	// 		else
-	// 			$error[] = "tanggal tidak boleh kosong"; 
+			// if(!empty($post['tanggal']))
+			$tanggal = date('d/m/Y');
+				$data['tanggal_diterima'] =  DateTime::createFromFormat('d/m/Y', $tanggal)->format('Y-m-d');
+			// else
+			// 	$error[] = "tanggal tidak boleh kosong"; 
 			
-	// 		if(!empty($post['id_pelanggan']))
-	// 			$data['id_pelanggan'] = $post['id_pelanggan'];
-	// 		else
-	// 			$error[] = "pelanggan tidak boleh kosong";
+			// if(!empty($post['id_pelanggan']))
+				// $data['id_pelanggan'] = $dt->id_pelanggan;
+			// else
+			// 	$error[] = "pelanggan tidak boleh kosong";
 			
-	// 		if(!empty($post['id_kurir']))
-	// 			$data['id_kurir'] = $post['id_kurir'];
-	// 		else
-	// 			$error[] = "kurir tidak boleh kosong";
+			// if(!empty($post['id_kurir']))
+				// $data['id_kurir'] = $post->id_kurir;
+			// else
+			// 	$error[] = "kurir tidak boleh kosong";
 			
-	// 		if(!empty($post['no_po']))
-	// 			$data['no_po'] = $post['no_po'];
-	// 		else
-	// 			$error[] = "no po tidak boleh kosong";
+			// if(!empty($post['no_po']))
+			// 	$data['no_po'] = $post['no_po'];
+			// else
+			// 	$error[] = "no po tidak boleh kosong";
 			
-	// 		if(!empty($post['no_kendaraan']))
-	// 			$data['no_kendaraan'] = $post['no_kendaraan'];
-	// 		else
-	// 			$error[] = "no kendaraan tidak boleh kosong";
+			// if(!empty($post['no_kendaraan']))
+			// 	$data['no_kendaraan'] = $post['no_kendaraan'];
+			// else
+			// 	$error[] = "no kendaraan tidak boleh kosong";
 
 			
-	// 		$data['status'] = 1;
+			$data['status'] = 2;
 			
-	// 		if(!empty($id))
-	// 		{
-	// 			if(!empty($post['status']))
-	// 				$data['status'] = $post['status'];
-	// 			else
-	// 				$error[] = "status tidak boleh kosong";
-	// 		}
+			// if(!empty($id))
+			// {
+			// 	if(!empty($post['status']))
+			// 		$data['status'] = $post['status'];
+			// 	else
+			// 		$error[] = "status tidak boleh kosong";
+			// }
 			
-	// 		if($data['status'] != 1)
-	// 		{
-	// 			if(!empty($post['penerima']))
-	// 				$data['penerima'] = $post['penerima'];
-	// 			else
-	// 				$error[] = "keterangan tidak boleh kosong";
+			if($data['status'] != 1)
+			{
+				if(!empty($post['penerima']))
+					$data['penerima'] = $post['penerima'];
+				else
+					$error[] = "keterangan tidak boleh kosong";
 				
-	// 			if(!empty($post['keterangan']))
-	// 				$data['keterangan'] = $post['keterangan'];
-	// 			else
-	// 				$error[] = "keterangan tidak boleh kosong";
-	// 		}
+				if(!empty($post['keterangan']))
+					$data['keterangan'] = $post['keterangan'];
+				else
+					$error[] = "keterangan tidak boleh kosong";
+			}
 			
-	// 		if(empty($error))
-	// 		{
-	// 			if(empty($id))
-	// 			{
-	// 				$cekpengiriman = $this->pengiriman_model->get_by("pg.id_pengiriman",$post['id_pengiriman']);
-	// 				if(!empty($cekpengiriman))
-	// 					$error[] = "id sudah terdaftar";
-	// 			}
-	// 		}
-			
-	// 		if(empty($error))
-	// 		{
-	// 			$save = $this->pengiriman_model->save($id,$data,false);
+			// if(empty($error))
+			// {
+			// 	if(empty($id))
+			// 	{
+			// 		$cekpengiriman = $this->pengiriman_model->get_by("pg.id_pengiriman",$post['id_pengiriman']);
+			// 		if(!empty($cekpengiriman))
+			// 			$error[] = "id sudah terdaftar";
+			// 	}
+			// }
+			// var_dump($data);die;
+			if(empty($error))
+			{
 				
-	// 			$datailkode = $post['detail']['id_barang'];
-	// 			$datailjumlah = $post['detail']['qty'];
+				
+				// var_dump($dt);
+				// $dti =  $this->pengiriman_model->get_detail_id($post['id_pengiriman']);
+				// $dtq =  $this->pengiriman_model->get_detail_qty($post['id_pengiriman']);
+				// var_dump($dti);
+				// var_dump($dtq);die;
+				$save = $this->pengiriman_model->save($id,$data,false);
+				
+				// $detailkode = $dti;
+				// $detailjumlah = $dtq;
 
-	// 			if(!empty($id))
-	// 			{
-	// 				$this->pengiriman_model->remove_detail($id);
-	// 			}
 				
-	// 			foreach($datailkode as $key => $val)
-	// 			{
+				
+				// foreach($detailkode as $key => $val)
+				// {
 					
-	// 				if(empty($id))
-	// 					$detail['id_pengiriman'] = $data['id_pengiriman'];
-	// 				else
-	// 					$detail['id_pengiriman'] = $id;
+				// 	if(empty($id))
+				// 		$detail['id_pengiriman'] = $data['id_pengiriman'];
+				// 	else
+				// 		$detail['id_pengiriman'] = $id;
 						
-	// 				$detail['id_barang'] = $val;
-	// 				$detail['qty'] = $datailjumlah[$val];
-	// 				$this->pengiriman_model->save_detail($detail);
-	// 			}
+				// 	$detail['id_barang'] = $val;
+				// 	$detail['qty'] = $detailjumlah[$val];
+				// 	$this->pengiriman_model->save_detail($detail);
+				// }
 				
+				if(!empty($id))
+				{
+					$this->pengiriman_model->remove_detail($id);
+				}
 				
-	// 			$this->session->set_flashdata('admin_save_success', "data berhasil disimpan");
+				// echo "data berhasil di update";
+				// sleep(5);
+				// if($post['action'] == "save")
+				// 	redirect("pengirimanpublic/managepublic/".$id);
+				// else
+				print ("<br><br><br><script>alert('Update Pengiriman berhasil')</script><h1><center>Back to <a href='".site_url()."/login'>Login</a> </center></h1>");
+					// redirect("login");
+			}
+			else
+			{
+				$err_string = "<ul>";
+				foreach($error as $err)
+					$err_string .= "<li>".$err."</li>";
+				$err_string .= "</ul>";
 				
-	// 			if($post['action'] == "save")
-	// 				redirect("pengiriman/manage/".$id);
-	// 			else
-	// 				redirect("pengiriman");
-	// 		}
-	// 		else
-	// 		{
-	// 			$err_string = "<ul>";
-	// 			foreach($error as $err)
-	// 				$err_string .= "<li>".$err."</li>";
-	// 			$err_string .= "</ul>";
-				
-	// 			$this->session->set_flashdata('admin_save_error', $err_string);
-	// 			redirect("pengiriman/manage/".$id);
-	// 		}
-	// 	}
-	// 	else
-	// 	  redirect("pengiriman");
-	// }
+				$this->session->set_flashdata('admin_save_error', $err_string);
+				redirect("pengirimanpublic/managepublic/".$id);
+			}
+		}
+		else
+		  redirect("pengirimanpublic");
+	}
 
 	// public function bindex()
 	// {
@@ -353,15 +364,15 @@ class Pengirimanupdate extends CI_Controller {
 	// 		{
 	// 			$save = $this->pengiriman_model->save($id,$data,false);
 				
-	// 			$datailkode = $post['detail']['id_barang'];
-	// 			$datailjumlah = $post['detail']['qty'];
+	// 			$detailkode = $post['detail']['id_barang'];
+	// 			$detailjumlah = $post['detail']['qty'];
 
 	// 			if(!empty($id))
 	// 			{
 	// 				$this->pengiriman_model->remove_detail($id);
 	// 			}
 				
-	// 			foreach($datailkode as $key => $val)
+	// 			foreach($detailkode as $key => $val)
 	// 			{
 					
 	// 				if(empty($id))
@@ -370,7 +381,7 @@ class Pengirimanupdate extends CI_Controller {
 	// 					$detail['id_pengiriman'] = $id;
 						
 	// 				$detail['id_barang'] = $val;
-	// 				$detail['qty'] = $datailjumlah[$val];
+	// 				$detail['qty'] = $detailjumlah[$val];
 	// 				$this->pengiriman_model->save_detail($detail);
 	// 			}
 				

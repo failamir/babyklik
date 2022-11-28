@@ -42,6 +42,7 @@
 						<thead>
 						  <tr>
 							<th>ID PELANGGAN</th>
+							<th>NAMA Toko</th>
 							<th>NAMA</th>
 							<th>TELEPON</th>
 							<th>ALAMAT</th>
@@ -52,6 +53,7 @@
 						<?php foreach($data as $dt): ?>
 						  <tr>
 							<td><?php echo $dt['id_pelanggan'];?></td>
+							<td><?php echo $dt['nama_toko'];?></td>
 							<td><?php echo $dt['nama'];?></td>
 							<td><?php echo $dt['telepon'];?></td>
 							<td><?php echo $dt['alamat'];?></td>

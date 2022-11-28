@@ -26,7 +26,7 @@ class Ajax extends Admin_Controller {
 								<th>ID BARANG</th>
 								<th>NAMA</th>
 								<th>KATEGORI</th>
-								<th>KETERANGAN</th>
+								<th>HARGA SATUAN</th>
 								<th>Action</th>
 							  </tr>
 						</thead>
@@ -45,9 +45,9 @@ class Ajax extends Admin_Controller {
 								<td>".$dt['id_barang']."</td>
 								<td>".$dt['nama']."</td>
 								<td>".$dt['kategori']."</td>
-								<td>".$dt['keterangan']."</td>";
+								<td>".$dt['harga_satuan']."</td>";
 
-				$content .="<td><button type='button' class='btn btn-success btn-sm' href='#' onClick='pilih(&quot;".$dt['id_barang']."&quot;,&quot;".$dt['nama']."&quot;,&quot;".$dt['kategori']."&quot;,&quot;".$dt['satuan']."&quot;)' data-dismiss='modal'>pilih</button></td>";				
+				$content .="<td><button type='button' class='btn btn-success btn-sm' href='#' onClick='pilih(&quot;".$dt['id_barang']."&quot;,&quot;".$dt['nama']."&quot;,&quot;".$dt['kategori']."&quot;,&quot;".$dt['harga_satuan']."&quot;)' data-dismiss='modal'>pilih</button></td>";				
 				$content  .= "</tr>";
 			}
 		}

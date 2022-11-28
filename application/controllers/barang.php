@@ -102,8 +102,8 @@ class Barang extends Admin_Controller {
 
 				if(!empty($post['deskripsi']))
 				$data['deskripsi'] = $post['deskripsi'];
-			else
-				$error[] = "deskripsi tidak boleh kosong"; 
+			// else
+			// 	$error[] = "deskripsi tidak boleh kosong"; 
 			
 		
 			if(empty($error))

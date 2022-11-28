@@ -6,14 +6,37 @@
 	</section>
 
 	<section class="content">
-
+		<?php 
+		$filter = new StdClass();
+		$filter->keyword = trim($this->input->get('keyword'));
+		
+		$orderBy = $this->input->get('orderBy');
+		$orderType = $this->input->get('orderType');
+		$page = $this->input->get('page');
+		
+		$limit = 15;
+		if(!$page)
+			$page = 1;
+		
+		$offset = ($page-1) * $limit;
+		$CI =& get_instance();
+		$CI->load->model('Pelanggan_Model');
+		
+		$p = $CI->Pelanggan_Model->getAll($filter,$limit,$offset,$orderBy,$orderType)[0];
+		$CI->load->model('Pengiriman_Model');
+		$t = $CI->Pengiriman_Model->getAll($filter,$limit,$offset,$orderBy,$orderType)[0];
+		$k = $CI->Pengiriman_Model->get_dikirim();
+		$a = $CI->Pengiriman_Model->get_diterima();
+		
+		// var_dump($p);
+		?>
 		<div class="row">
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="info-box">
 					<span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
 					<div class="info-box-content">
-						<span class="info-box-text">CPU Traffic</span>
-						<span class="info-box-number">90<small>%</small></span>
+						<span class="info-box-text">TotalPengiriman</span>
+						<span class="info-box-number"><small><?php echo count($t); ?></small></span>
 					</div>
 
 				</div>
@@ -24,8 +47,8 @@
 				<div class="info-box">
 					<span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
 					<div class="info-box-content">
-						<span class="info-box-text">Likes</span>
-						<span class="info-box-number">41,410</span>
+						<span class="info-box-text">Total Pelanggan</span>
+						<span class="info-box-number"><?php echo count($p); ?></span>
 					</div>
 
 				</div>
@@ -38,8 +61,8 @@
 				<div class="info-box">
 					<span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
 					<div class="info-box-content">
-						<span class="info-box-text">Sales</span>
-						<span class="info-box-number">760</span>
+						<span class="info-box-text">Total Dikirim</span>
+						<span class="info-box-number"> <?php echo count($k); ?> </span>
 					</div>
 
 				</div>
@@ -50,8 +73,8 @@
 				<div class="info-box">
 					<span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
 					<div class="info-box-content">
-						<span class="info-box-text">New Members</span>
-						<span class="info-box-number">2,000</span>
+						<span class="info-box-text">Total Diterima</span>
+						<span class="info-box-number"><?php echo count($a); ?></span>
 					</div>
 
 				</div>
@@ -60,7 +83,7 @@
 
 		</div>
 
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-md-12">
 				<div class="box">
 					<div class="box-header with-border">
@@ -183,10 +206,10 @@
 
 			</div>
 
-		</div>
+		</div> -->
 
 
-		<div class="row">
+		<!-- <div class="row">
 
 			<div class="col-md-8">
 
@@ -988,7 +1011,7 @@
 
 			</div>
 
-		</div>
+		</div> -->
 
 	</section>
 </div>

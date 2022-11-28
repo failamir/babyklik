@@ -34,6 +34,12 @@
 								</div>
 							</div>
 							<div class="form-group">
+								<label for="nama" class="col-sm-2 control-label">nama toko</label>
+								<div class="col-sm-4">
+								  <input type="text" class="form-control"  required="required" id="nama_toko"  name="nama_toko" placeholder="input nama_toko" value="<?php echo $data->nama_toko; ?>"  >
+								</div>
+							</div>
+							<div class="form-group">
 								<label for="nama" class="col-sm-2 control-label">nama</label>
 								<div class="col-sm-4">
 								  <input type="text" class="form-control"  required="required" id="nama"  name="nama" placeholder="input nama" value="<?php echo $data->nama; ?>"  >

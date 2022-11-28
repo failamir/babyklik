@@ -6,52 +6,6 @@ class Pengiriman extends Admin_Controller {
         parent::__construct();
 		$this->load->model("pengiriman_model");
     }
-
-	function generate_qrcode($data)
-	{
-        /* Load QR Code Library */
-        $this->load->library('ciqrcode');
-        
-        /* Data */
-        $hex_data   = bin2hex($data);
-        $save_name  = $hex_data.'.png';
-
-        /* QR Code File Directory Initialize */
-        $dir = 'assets/media/qrcode/';
-        if (!file_exists($dir)) {
-            mkdir($dir, 0775, true);
-        }
-
-        /* QR Configuration  */
-        $config['cacheable']    = true;
-        $config['imagedir']     = $dir;
-        $config['quality']      = true;
-        $config['size']         = '1024';
-        $config['black']        = array(255,255,255);
-        $config['white']        = array(255,255,255);
-        $this->ciqrcode->initialize($config);
-  
-        /* QR Data  */
-        $params['data']     = $data;
-        $params['level']    = 'L';
-        $params['size']     = 10;
-        $params['savename'] = FCPATH.$config['imagedir']. $save_name;
-        
-        $this->ciqrcode->generate($params);
-
-        /* Return Data */
-        $return = array(
-            'content' => $data,
-            'file'    => $dir. $save_name
-        );
-        return $return;
-    }
-
-	public function update()
-	{
-		echo 0;
-	}
-
 	public function index()
 	{
 		$this->cekLoginStatus("staff gudang",true);
@@ -90,7 +44,7 @@ class Pengiriman extends Admin_Controller {
 	{
 		$this->cekLoginStatus("staff gudang",true);
 		
-		$data['title'] = "FORM PENGIRIMAN";
+		$data['title'] = "FORM PESANAN";
 		$data['layout'] = "pengiriman/manage";
 
 		$data['data'] = new StdClass();
@@ -199,8 +153,8 @@ class Pengiriman extends Admin_Controller {
 			
 			if(empty($error))
 			{
-				$save = $this->pengiriman_model->save($id,$data,false);
 				
+				// var_dump($post);die;
 				$datailkode = $post['detail']['id_barang'];
 				$datailjumlah = $post['detail']['qty'];
 
@@ -219,8 +173,12 @@ class Pengiriman extends Admin_Controller {
 						
 					$detail['id_barang'] = $val;
 					$detail['qty'] = $datailjumlah[$val];
+					$data['total_harga'] = $this->pengiriman_model->get_harga($detail['id_barang'])[0]->harga_satuan * $detail['qty'];
+					$save = $this->pengiriman_model->save($id,$data,false);
 					$this->pengiriman_model->save_detail($detail);
 				}
+				// var_dump($data['total_harga']);
+				// die;
 				
 				
 				$this->session->set_flashdata('admin_save_success', "data berhasil disimpan");
