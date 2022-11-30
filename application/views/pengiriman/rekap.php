@@ -54,23 +54,46 @@
 											 <input type="text" class="form-control datepicker" id="from" name="from"  readonly data-date-format="mm/dd/yyyy" value="<?php echo $this->input->get("from") != "" ? date("m/d/Y",strtotime($this->input->get("from"))) : date("m/d/Y",strtotime("-30 days")) ?>">
 											  <div class="input-group-addon glyphicon glyphicon-calendar"></div>
 											</div>
+											<div class="input-group">
+												<div class="radio">
+													<label><input type="radio" name="status" id="semua" value="all" <?php echo $this->input->get("status") == "all" ? ' checked' : '';?>>Semua
+													</label>
+												</div>
+												<div class="radio">
+													<label><input type="radio" name="status" id="dikirim" value="1" <?php echo $this->input->get("status") == "1" ? ' checked' : '';?>>Dikirim
+													</label>
+												</div>
+												<div class="radio">
+													<label><input type="radio" name="status" id="diterima" value="2" <?php echo $this->input->get("status") == "2" ? ' checked' : '';?>>Diterima
+													</label>
+												</div>
+											</div>
 										</div>
 										<div class="col-md-3">
 											<div class="input-group">
-											 <div class="input-group-addon">sampai</div>
-											<input type="text" class="form-control datepicker" id="to" name="to"  readonly data-date-format="mm/dd/yyyy" value="<?php echo $this->input->get("to") != "" ? date("m/d/Y",strtotime($this->input->get("to"))) : date("m/d/Y") ?>">
-											  <div class="input-group-addon glyphicon glyphicon-calendar"></div>
+												<div class="input-group-addon">sampai</div>
+													<input type="text" class="form-control datepicker" id="to" name="to"  readonly data-date-format="mm/dd/yyyy" value="<?php echo $this->input->get("to") != "" ? date("m/d/Y",strtotime($this->input->get("to"))) : date("m/d/Y") ?>">
+												<div class="input-group-addon glyphicon glyphicon-calendar"></div>
+											</div>
+											<div class="input-group">
+												<div class="radio">
+													<label><input type="radio" name="status" id="ditolak" value="3" <?php echo $this->input->get("status") == "3" ? ' checked' : '';?>>Ditolak
+													</label>
+												</div>
+												<div class="radio">
+													<label><input type="radio" name="status" id="diterima_sebagian" value="4" <?php echo $this->input->get("status") == "4" ? ' checked' : '';?>>Diterima Sebagian
+													</label>
+												</div>
 											</div>
 										</div>
-										<p>
-										<div class="col-sm-3">
-										   <select class="form-control input-sm" name="status">
+										<!-- <p> -->
+										   <!-- <select class="form-control input-sm" name="status">
 										     <option value="all" <?php echo $this->input->get("status") == "all" ? ' selected' : '';?> >-status-</option>
 											  <option value="1" <?php echo $this->input->get("status") == "1" ? ' selected' : '';?> >Dikirim</option>
 											  <option value="2" <?php echo $this->input->get("status") == "2" ? ' selected' : '';?> >Diterima</option>
 											  <option value="3" <?php echo $this->input->get("status") == "3" ? ' selected' : '';?> >Ditolak</option>
 											  <option value="4" <?php echo $this->input->get("status") == "4" ? ' selected' : '';?> >Diterima sebagian</option>
-											</select>
+											</select> -->
 											<!-- <input type="checkbox" id="vehicle1" name="status" value="all">
 											<label for="vehicle1"> Semua</label><br>
 											<input type="checkbox" id="vehicle1" name="status" value="1">
@@ -81,13 +104,13 @@
 											<label for="vehicle3"> Ditolak</label><br>
 											<input type="checkbox" id="vehicle3" name="status" value="4">
 											<label for="vehicle3"> Diterima sebagian</label><br> -->
-										</div>
-										</p>
+										<!-- </p> -->
 										<div class="col-md-2">
 											<button type="submit" class="btn btn-success" name="cari" value="cari">show</button>
 										</div>
 									</div>
-								</form>
+								</div>
+							</form>
 						</div>
 					</div>
 						<div class="box-body no-padding">
