@@ -5,7 +5,7 @@ class Barang extends Admin_Controller {
     {
         parent::__construct();
 		$this->load->model("barang_model");
-		$this->cekLoginStatus("admin",true);
+		// $this->cekLoginStatus("admin",true);
     }
 	public function index()
 	{
