@@ -106,11 +106,11 @@ $CI = &get_instance();
 
           <?php endif; ?>
           <?php if ($CI->getStatus() == '3' || $CI->getStatus() == '1') : ?>
+            <li><a href="<?php echo site_url('barang') ?>"><i class="fa fa-circle-o"></i> Barang</a></li>
             <li>
               <a href="<?php echo site_url('pengiriman') ?>">
-            <li><a href="<?php echo site_url('barang') ?>"><i class="fa fa-circle-o"></i> Barang</a></li>
-            <i class="fa fa-file-text"></i> <span>Pengiriman</span> <i class="fa pull-right"></i>
-            </a>
+                <i class="fa fa-file-text"></i> <span>Pengiriman</span> <i class="fa pull-right"></i>
+              </a>
             </li>
           <?php endif; ?>
           <?php if ($CI->getStatus() == '2' || $CI->getStatus() == '1') : ?>
