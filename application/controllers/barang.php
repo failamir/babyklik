@@ -50,6 +50,7 @@ class Barang extends Admin_Controller {
 		$data['data']->id_kategori = "";
 		$data['data']->satuan = "";
 		$data['data']->harga_satuan = "";
+		$data['data']->stok = "";
 		$data['data']->deskripsi = "";
 		$data['data']->autocode = $this->generate_code();
 		
@@ -95,12 +96,19 @@ class Barang extends Admin_Controller {
 			else
 				$error[] = "satuan tidak boleh kosong"; 
 
-				if(!empty($post['harga_satuan']))
+			if(!empty($post['harga_satuan']))
 				$data['harga_satuan'] = $post['harga_satuan'];
 			else
-				$error[] = "harga satuan tidak boleh kosong"; 
+				$error[] = "harga satuan tidak boleh kosong";
+				
+			if(empty($post['stok']))
+				$data['stok'] = 0;
+			else if($post['stok'] < 0)
+				$error[] = "jumlah stok tidak boleh kurang dari 0";
+			else
+				$data['stok'] = $post['stok'];
 
-				if(!empty($post['deskripsi']))
+			if(!empty($post['deskripsi']))
 				$data['deskripsi'] = $post['deskripsi'];
 			// else
 			// 	$error[] = "deskripsi tidak boleh kosong"; 
