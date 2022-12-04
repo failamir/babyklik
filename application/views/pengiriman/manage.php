@@ -211,7 +211,7 @@ function getKurir(page)
 	});	
 }
 
-function pilih(id,nama,other,other2)
+function pilih(id,nama,other,other2,other3)
 {
 	if(selectedmodal == 1)
 	{
@@ -219,7 +219,8 @@ function pilih(id,nama,other,other2)
 		$br += "<td><input type='hidden' name='detail[id_barang][]' value='"+id+"'>"+id+"</td>";
 		$br += "<td>"+nama+"</td>";
 		$br += "<td>"+other+"</td>";
-		$br += "<td>"+other2+"</td>";
+		$br += "<td><input type='hidden' name='detail[harga_satuan]["+id+"]' value='"+other2+"'>"+other2+"</td>";
+		$br += "<td>"+other3+"</td>";
 		$br += "<td><input type='text' class='form-control' name='detail[qty]["+id+"]' value='1' size='5'></td>";
 		$br += "<td><a class='btn btn-danger btn-xs delete' href='javascript://' onclick='deleteBarang(this)'><span class='glyphicon glyphicon-remove'></span></a></td>";
 		$br += "</tr>";
@@ -384,7 +385,9 @@ function deleteBarang(a)
 										<th>Kode Barang</th>
 										<th>Nama Barang</th>
 										<th>Kategori</th>
+										<th>Satuan</th>
 										<th>Harga Satuan</th>
+										<th>Stok</th>
 										<th>Jumlah</th>
 										<th>Action</th>
 									  </tr>
@@ -400,6 +403,8 @@ function deleteBarang(a)
 											<td><?php echo $b[1]; ?></td>
 											<td><?php echo $b[2]; ?></td>
 											<td><?php echo $b[3]; ?></td>
+											<td><?php echo $b[6]; ?></td>
+											<td><?php echo $b[7]; ?></td>
 											<td><input type='text' class="form-control" name='detail[qty][<?php echo $b[0]; ?>]' value='<?php echo $b[4]; ?>' size='5' ></td>
 											<td><a class='btn btn-danger btn-xs delete' href='javascript://' onclick='deleteBarang(this)'><span class='glyphicon glyphicon-remove' ></span></a></td>
 											<td></td>
