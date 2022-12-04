@@ -98,7 +98,7 @@ class Pengiriman_Model extends CI_Model
 
 		$where = "WHERE $field = '" . $this->db->escape_str(strtolower($value)) . "'";
 		$query = $this->db->query("SELECT SQL_CALC_FOUND_ROWS pg.*,k.nama kategori,k.keterangan kategori_keterangan,kr.nama kurir,p.nama pelanggan,p.alamat
-								   ,group_concat(concat(dp.id_barang,'|',b.nama,'|',k.nama,'|',b.satuan,'|',dp.qty,'|',b.del_no)  order by b.nama SEPARATOR '===')  as barang
+								   ,group_concat(concat(dp.id_barang,'|',b.nama,'|',k.nama,'|',b.satuan,'|',dp.qty,'|',b.del_no,'|',b.harga_satuan,'|',b.stok)  order by b.nama SEPARATOR '===')  as barang
 								   FROM " . $this->table . " pg
 								   LEFT JOIN detail_pengiriman dp on dp.id_pengiriman = dp.id_pengiriman
 								   LEFT JOIN barang b on b.id_barang = dp.id_barang
