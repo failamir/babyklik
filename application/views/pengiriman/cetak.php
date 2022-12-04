@@ -96,8 +96,10 @@
 				<th class="border-bottom border-top">Kode Barang</th>
 				<th class="border-bottom border-top">Nama Barang</th>
 				<th class="border-bottom border-top">Del No</th>
-				<th class="border-bottom border-top">QTY</th>
 				<th class="border-bottom border-top">Sat</th>
+				<th class="border-bottom border-top">Harga</th>
+				<th class="border-bottom border-top">QTY</th>
+				<th class="border-bottom border-top">Subtotal</th>
 			</tr>
 			<tbody>
 			<?php if($data->barang != null): ?>
@@ -105,19 +107,22 @@
 			<?php $i = 1; ?>
 			<?php foreach($barang as $br): ?>
 			<?php $b = explode("|",$br) ?>
+			<?php $subtotal = $b[4] * $b[6]; ?>
 			<tr  class="tbl-resi">
 				<td align="center" height="10"><?php echo $i; ?></td>
 				<td align="center"><?php echo $b[0]; ?></td>
 				<td align="center"><?php echo $b[1]; ?></td>
 				<td align="center"><?php echo $b[5]; ?></td>
-				<td align="center"><?php echo $b[4]; ?></td>
 				<td align="center"><?php echo $b[3]; ?></td>
+				<td align="center"><?php echo $b[6]; ?></td>
+				<td align="center"><?php echo $b[4]; ?></td>
+				<td align="center"><?php echo $subtotal; ?></td>
 			</tr>
 			<?php $i++; ?>
 			<?php endforeach ?>
 			<tr class="">
-				<td colspan = '5' class="border-top"><div style='text-align:right;'>Total : </div></td>
-				<td align="center" class="border-top">-</td>
+				<td colspan = '7' class="border-top"><div style='text-align:right;'>Total : </div></td>
+				<td align="center" class="border-top"><?php echo $data->total_harga; ?></td>
 			</tr>
 			<?php endif ?>
 		</tbody>
