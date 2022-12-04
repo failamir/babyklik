@@ -56,7 +56,7 @@ class Ajax extends Admin_Controller {
 					$content .="<td><button type='button' class='btn btn-success btn-sm disabled'>pilih</button></td>";				
 					$content  .= "</tr>";
 				}else{
-				$content .="<td><button type='button' class='btn btn-success btn-sm' href='#' onClick='pilih(&quot;".$dt['id_barang']."&quot;,&quot;".$dt['nama']."&quot;,&quot;".$dt['kategori']."&quot;,&quot;".$dt['harga_satuan']."&quot;)' data-dismiss='modal'>pilih</button></td>";				
+				$content .="<td><button type='button' class='btn btn-success btn-sm' href='#' onClick='pilih(&quot;".$dt['id_barang']."&quot;,&quot;".$dt['nama']."&quot;,&quot;".$dt['kategori']."&quot;,&quot;".$dt['harga_satuan']."&quot;,&quot;".$dt['stok']."&quot;)' data-dismiss='modal'>pilih</button></td>";				
 				$content  .= "</tr>";
 				}
 			}
