@@ -77,7 +77,7 @@
 							<div class="form-group">
 								<label for="deskripsi" class="col-sm-2 control-label">deskripsi</label>
 								<div class="col-sm-4">
-									<textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="deskripsi" value="<?php echo $data->deskripsi; ?>"></textarea>
+									<textarea class="form-control" id="deskripsi" name="deskripsi" placeholder="deskripsi" value="<?php echo $data->deskripsi; ?>"><?php echo $data->deskripsi; ?></textarea>
 								</div>
 							</div>
 						</div>
