@@ -44,6 +44,7 @@
 							<th>KATEGORI</th>
 							<th>SATUAN</th>
 							<th>HARGA SATUAN</th>
+							<th>STOK</th>
 							<!-- <th>DESKRIPSI</th> -->
 							<th>ACTION</th>
 						  </tr>
@@ -56,6 +57,7 @@
 							<td><?php echo $dt['kategori'];?></td>
 							<td><?php echo $dt['satuan'];?></td>
 							<td><?php echo $dt['harga_satuan'];?></td>
+							<td><?php echo $dt['stok'] <= 0 ? '<span class='.'"label label-danger"'.'>Habis</span>' : $dt['stok'];?></td>
 							<!-- <td><?php echo $dt['deskripsi'];?></td> -->
 							<th>
 								<a class="btn btn-warning btn-xs" href="<?php echo site_url("barang/manage")."/". $dt['id_barang']; ?>"><span class="glyphicon glyphicon-edit"></span></a>

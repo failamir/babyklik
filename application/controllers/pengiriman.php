@@ -157,12 +157,14 @@ class Pengiriman extends Admin_Controller {
 				// var_dump($post);die;
 				$datailkode = $post['detail']['id_barang'];
 				$datailjumlah = $post['detail']['qty'];
+				$datailharga = $post['detail']['harga_satuan'];
+				$subtotal = 0;
 
 				if(!empty($id))
 				{
 					$this->pengiriman_model->remove_detail($id);
 				}
-
+				
 				foreach($datailkode as $key => $val)
 				{
 					
@@ -173,8 +175,10 @@ class Pengiriman extends Admin_Controller {
 						
 					$detail['id_barang'] = $val;
 					$detail['qty'] = $datailjumlah[$val];
-					$data['total_harga'] = $this->pengiriman_model->get_harga($detail['id_barang'])[0]->harga_satuan * $detail['qty'];
+					$harga_satuan = $datailharga[$val];
+					$subtotal += $detail['qty'] * $harga_satuan;
 				}
+				$data['total_harga'] = $subtotal;
 				$save = $this->pengiriman_model->save($id,$data,false);
 
 				foreach($datailkode as $key => $val)
