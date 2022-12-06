@@ -106,6 +106,7 @@
 			<?php foreach($barang as $br): ?>
 			<?php $b = explode("|",$br) ?>
 			<?php $subtotal = $b[4] * $b[6]; ?>
+			<?php $qty[] = $b[4]; ?>
 			<tr  class="tbl-resi">
 				<td align="center" height="10"><?php echo $i; ?></td>
 				<td align="center"><?php echo $b[0]; ?></td>
@@ -119,7 +120,8 @@
 			<?php $i++; ?>
 			<?php endforeach ?>
 			<tr class="">
-				<td colspan = '7' class="border-top"><div style='text-align:right;'>Total : </div></td>
+				<td colspan = '6' class="border-top"><div style='text-align:right;'>Total : </div></td>
+				<td align="center" class="border-top"><?php echo array_sum($qty); ?></td>
 				<td align="center" class="border-top"><?php echo "Rp " . number_format($data->total_harga, 0, ",", "."); ?></td>
 			</tr>
 			<?php endif ?>
