@@ -114,15 +114,15 @@
 				<td align="center"><?php echo $b[1]; ?></td>
 				<td align="center"><?php echo $b[5]; ?></td>
 				<td align="center"><?php echo $b[3]; ?></td>
-				<td align="center"><?php echo $b[6]; ?></td>
+				<td align="center"><?php echo "Rp " . number_format($b[6], 0, ",", "."); ?></td>
 				<td align="center"><?php echo $b[4]; ?></td>
-				<td align="center"><?php echo $subtotal; ?></td>
+				<td align="center"><?php echo "Rp " . number_format($subtotal, 0, ",", "."); ?></td>
 			</tr>
 			<?php $i++; ?>
 			<?php endforeach ?>
 			<tr class="">
 				<td colspan = '7' class="border-top"><div style='text-align:right;'>Total : </div></td>
-				<td align="center" class="border-top"><?php echo $data->total_harga; ?></td>
+				<td align="center" class="border-top"><?php echo "Rp " . number_format($data->total_harga, 0, ",", "."); ?></td>
 			</tr>
 			<?php endif ?>
 		</tbody>

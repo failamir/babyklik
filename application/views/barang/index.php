@@ -56,7 +56,7 @@
 							<td><?php echo $dt['nama'];?></td>
 							<td><?php echo $dt['kategori'];?></td>
 							<td><?php echo $dt['satuan'];?></td>
-							<td><?php echo $dt['harga_satuan'];?></td>
+							<td><?php echo "Rp " . number_format($dt['harga_satuan'], 0, ",", ".");?></td>
 							<td><?php echo $dt['stok'] <= 0 ? '<span class='.'"label label-danger"'.'>Habis</span>' : $dt['stok'];?></td>
 							<!-- <td><?php echo $dt['deskripsi'];?></td> -->
 							<th>
