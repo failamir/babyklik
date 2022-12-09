@@ -56,7 +56,7 @@
 				<div class='header-address'>Rawalumbu, Bekasi, Jawa Barat 17115</div>
 			</td>
 			<td valign='top'>
-				<img class="img-qrcode" src="<?php echo base_url("export")."/".$data->id_pengiriman.".png"?>" width="90" height="90" />
+				<!-- <img class="img-qrcode" src="<?php echo base_url("export")."/".$data->id_pengiriman.".png"?>" width="90" height="90" /> -->
 				<div>
 					Tgl   : Depok, <?php echo date('d M Y',strtotime($data->tanggal)); ?>
 				</div>
