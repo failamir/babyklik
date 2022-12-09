@@ -54,7 +54,7 @@
   <div class="login-box">
     <div class="row">
       <div class="col-xs-8">
-        <a href="<?php echo site_url()?>/pengirimanupdate" type="submit" class="btn btn-success btn-block btn-flat">Update Pengiriman</a>
+        <!-- <a href="<?php echo site_url()?>/pengirimanupdate" type="submit" class="btn btn-success btn-block btn-flat">Update Pengiriman</a> -->
       </div>
     </div>
   </div>
