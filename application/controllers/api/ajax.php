@@ -49,14 +49,14 @@ class Ajax extends Admin_Controller {
 								<td>".$dt['id_barang']."</td>
 								<td>".$dt['nama']."</td>
 								<td>".$dt['kategori']."</td>
-								<td>".$dt['harga_satuan']."</td>
+								<td>"."Rp " . number_format($dt['harga_satuan'], 0, ",", ".")."</td>
 								<td>".$stok."</td>";
 
 				if ($stok <= 0) {
 					$content .="<td><button type='button' class='btn btn-success btn-sm disabled'>pilih</button></td>";				
 					$content  .= "</tr>";
 				}else{
-				$content .="<td><button type='button' class='btn btn-success btn-sm' href='#' onClick='pilih(&quot;".$dt['id_barang']."&quot;,&quot;".$dt['nama']."&quot;,&quot;".$dt['kategori']."&quot;,&quot;".$dt['harga_satuan']."&quot;,&quot;".$dt['stok']."&quot;)' data-dismiss='modal'>pilih</button></td>";				
+				$content .="<td><button type='button' class='btn btn-success btn-sm' href='#' onClick='pilih(&quot;".$dt['id_barang']."&quot;,&quot;".$dt['nama']."&quot;,&quot;".$dt['kategori']."&quot;,&quot;".$dt['satuan']."&quot;,&quot;".$dt['harga_satuan']."&quot;,&quot;".$dt['stok']."&quot;)' data-dismiss='modal'>pilih</button></td>";				
 				$content  .= "</tr>";
 				}
 			}
