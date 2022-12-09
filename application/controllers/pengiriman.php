@@ -162,7 +162,7 @@ class Pengiriman extends Admin_Controller {
 
 				if(!empty($id))
 				{
-					$this->pengiriman_model->remove_detail($id);
+					// $this->pengiriman_model->remove_detail($id);
 				}
 				
 				foreach($datailkode as $key => $val)
