@@ -151,7 +151,7 @@ class Pengiriman extends Admin_Controller {
 				}
 			}
 			
-			if(empty($error))
+			if(empty($error) and $data['status'] == 1)
 			{
 				
 				// var_dump($post);die;
@@ -199,6 +199,17 @@ class Pengiriman extends Admin_Controller {
 				// die;
 				
 				
+				$this->session->set_flashdata('admin_save_success', "data berhasil disimpan");
+				
+				if($post['action'] == "save")
+					redirect("pengiriman/manage/".$id);
+				else
+					redirect("pengiriman");
+			}else
+			if(empty($error) and $data['status'] != 1)
+			{
+				$save = $this->pengiriman_model->save($id,$data,false);
+
 				$this->session->set_flashdata('admin_save_success', "data berhasil disimpan");
 				
 				if($post['action'] == "save")
