@@ -274,6 +274,7 @@ class Pengiriman extends Admin_Controller
 			$number = substr($last->id_pengiriman, 11, 3) + 1;
 			// var_dump($number);
 			$code = str_pad($number, 4, "0", STR_PAD_LEFT);
+			$code = substr($code, 11, 5);
 		}
 		// var_dump($prefix.$code);die;
 		return $prefix . $code;

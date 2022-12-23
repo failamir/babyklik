@@ -19,6 +19,8 @@
 		$t = $CI->Pengiriman_Model->getAll($filter,$limit,$offset,$orderBy,$orderType)[0];
 		$k = $CI->Pengiriman_Model->get_dikirim();
 		$a = $CI->Pengiriman_Model->get_diterima();
+		$as = $CI->Pengiriman_Model->get_diterima_sebagian();
+		$s = $CI->Pengiriman_Model->get_ditolak();
 		
 		// var_dump($p);
 		?>
@@ -193,6 +195,28 @@
                         </div>
                     </div>
                 </div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+				<div class="info-box">
+					<span class="info-box-icon bg-brown"><i class="fa fa-database"></i></span>
+					<div class="info-box-content">
+						<span class="info-box-text">Total Diterima Sebagian</span>
+						<span class="info-box-number"><?php echo count($as); ?></span>
+					</div>
+
+				</div>
+
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-12">
+				<div class="info-box">
+					<span class="info-box-icon bg-red"><i class="fa fa-stop"></i></span>
+					<div class="info-box-content">
+						<span class="info-box-text">Total Ditolak</span>
+						<span class="info-box-number"><?php echo count($s); ?></span>
+					</div>
+
+				</div>
+
+				</div>
             </div>
         </div>
 		<!-- <div class="row">

@@ -201,6 +201,32 @@ class Pengiriman_Model extends CI_Model
 		return $result;
 	}
 
+	public function get_diterima_sebagian()
+	{
+		$where = "WHERE status = 4";
+		$query = $this->db->query("SELECT  *
+								   FROM " . $this->table . "
+								   $where 
+								   ");
+		$result = $query->result_array();
+		$query->free_result();
+
+		return $result;
+	}
+
+	public function get_ditolak()
+	{
+		$where = "WHERE status = 3";
+		$query = $this->db->query("SELECT  *
+								   FROM " . $this->table . "
+								   $where 
+								   ");
+		$result = $query->result_array();
+		$query->free_result();
+
+		return $result;
+	}
+
 	public function get_last()
 	{
 		$query = $this->db->query("SELECT  * FROM " . $this->table . " order by " . $this->key . " desc limit 0,1");
