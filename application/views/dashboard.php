@@ -126,7 +126,7 @@
 		<div class="row">
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="info-box">
-					<span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+					<span class="info-box-icon bg-aqua"><i class="fa fa-inbox"></i></span>
 					<div class="info-box-content">
 						<span class="info-box-text">TotalPengiriman</span>
 						<span class="info-box-number"><small><?php echo count($t); ?></small></span>
@@ -152,7 +152,7 @@
 			<div class="clearfix visible-sm-block"></div>
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="info-box">
-					<span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+					<span class="info-box-icon bg-green"><i class="fa fa-car"></i></span>
 					<div class="info-box-content">
 						<span class="info-box-text">Total Dikirim</span>
 						<span class="info-box-number"> <?php echo count($k); ?> </span>
