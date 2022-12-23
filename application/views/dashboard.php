@@ -43,7 +43,7 @@
             options: {
                 title: {
                     display: true,
-                    text: 'Weather'
+                    text: ''
                 }
             }
         });
