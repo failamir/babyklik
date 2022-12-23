@@ -138,7 +138,7 @@
 
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="info-box">
-					<span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
+					<span class="info-box-icon bg-red"><i class="ion ion-ios-people-outline"></i></span>
 					<div class="info-box-content">
 						<span class="info-box-text">Total Pelanggan</span>
 						<span class="info-box-number"><?php echo count($p); ?></span>
@@ -164,7 +164,7 @@
 
 			<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="info-box">
-					<span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+					<span class="info-box-icon bg-yellow"><i class="fa fa-send"></i></span>
 					<div class="info-box-content">
 						<span class="info-box-text">Total Diterima</span>
 						<span class="info-box-number"><?php echo count($a); ?></span>

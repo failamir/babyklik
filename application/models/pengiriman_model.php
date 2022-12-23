@@ -126,6 +126,16 @@ class Pengiriman_Model extends CI_Model
 		$this->db->where_in($this->key, $id)->delete($this->table);
 	}
 
+	function upstok($id = "", $data = array(), $insert_id = false)
+	{
+
+		if (!empty($id)) {
+			$this->db->where('id_barang', $id);
+			$this->db->update('barang', $data);
+		} 
+		return $this->db->affected_rows();
+	}
+
 	function save($id = "", $data = array(), $insert_id = false)
 	{
 
@@ -147,6 +157,19 @@ class Pengiriman_Model extends CI_Model
 								   WHERE id_barang = '$id'
 								   ");
 		$result = $query->result();
+		$query->free_result();
+
+		return $result;
+	}
+
+	public function get_qty_brng($id)
+	{
+		$where = "WHERE id_barang = '$id'";
+		$query = $this->db->query("SELECT  *
+								   FROM barang
+								   $where 
+								   ");
+		$result = $query->result_array();
 		$query->free_result();
 
 		return $result;

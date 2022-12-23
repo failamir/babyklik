@@ -341,7 +341,10 @@ function deleteBarang(a)
 							<div class="form-group">
 								<label for="no_po" class="col-sm-2 control-label">No PO</label>
 								<div class="col-sm-4">
-								  <input type="text" class="form-control"  required="required" id="no_po"  name="no_po" placeholder="input no po" value="<?php echo $data->no_po; ?>"  >
+									<!-- <?php echo $data->no_po; ?> -->
+								  <input type="text" class="form-control"  required="required" id="no_po"  name="no_po" 
+								  placeholder="<?php if($data->no_po == ''){echo $data->autocodepo;}else{echo $data->no_po;} ?>" 
+								  value="<?php if($data->no_po == ''){echo $data->autocodepo;}else{echo $data->no_po;} ?>"  >
 								</div>
 							</div>
 							<?php if(!empty($data->id_pengiriman)): ?>
@@ -349,7 +352,7 @@ function deleteBarang(a)
 								<label for="id_categ" class="col-sm-2 control-label">Status</label>
 								<div class="col-sm-7">
 								   <select class="form-control input-sm" name="status">
-									  <option value="1" <?php echo $data->status == "1" ? ' selected' : '';?> >Dikirim</option>
+									  <!-- <option value="1" <?php echo $data->status == "1" ? ' selected' : '';?> >Dikirim</option> -->
 									  <option value="2" <?php echo $data->status == "2" ? ' selected' : '';?> >Diterima</option>
 									  <option value="3" <?php echo $data->status == "3" ? ' selected' : '';?> >Ditolak</option>
 									  <option value="4" <?php echo $data->status == "4" ? ' selected' : '';?> >Diterima sebagian</option>
