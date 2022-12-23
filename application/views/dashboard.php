@@ -32,14 +32,16 @@
 		var t = "<?php echo count($t); ?>";
 		var k = "<?php echo count($k); ?>";
 		var a = "<?php echo count($a); ?>";
+		var as = "<?php echo count($as); ?>";
+		var s = "<?php echo count($s); ?>";
         var ctx = $("#chart-line");
         var myLineChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ["Pengiriman", "Pelanggan", "DIKIRIM", "DITERIMA"],
+                labels: ["Pengiriman", "Pelanggan", "DIKIRIM", "DITERIMA","DITOLAK","DITERIMA SEBAGIAN"],
                 datasets: [{
-                    data: [p, t, k, a],
-                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)", "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)"]
+                    data: [p, t, k, a, s, as],
+                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)", "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)","rgba(0, 150, 255, 0.5)","rgba(0, 200, 255, 0.5)"]
                 }]
             },
             options: {
@@ -197,9 +199,9 @@
                 </div>
 				<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="info-box">
-					<span class="info-box-icon bg-brown"><i class="fa fa-database"></i></span>
+					<span class="info-box-icon bg-brown"><i class="fa fa-dropbox"></i></span>
 					<div class="info-box-content">
-						<span class="info-box-text">Total Diterima Sebagian</span>
+						<span class="info-box-text">Total Diterima <br> Sebagian</span>
 						<span class="info-box-number"><?php echo count($as); ?></span>
 					</div>
 
@@ -208,7 +210,7 @@
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12">
 				<div class="info-box">
-					<span class="info-box-icon bg-red"><i class="fa fa-stop"></i></span>
+					<span class="info-box-icon bg-red"><i class="fa fa-times"></i></span>
 					<div class="info-box-content">
 						<span class="info-box-text">Total Ditolak</span>
 						<span class="info-box-number"><?php echo count($s); ?></span>
