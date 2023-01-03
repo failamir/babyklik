@@ -198,14 +198,14 @@
                     </div>
                 </div>
 				<div class="col-md-3 col-sm-6 col-xs-12">
-				<div class="info-box">
+				<!-- <div class="info-box">
 					<span class="info-box-icon bg-brown"><i class="fa fa-dropbox"></i></span>
 					<div class="info-box-content">
 						<span class="info-box-text">Total Diterima <br> Sebagian</span>
 						<span class="info-box-number"><?php echo count($as); ?></span>
 					</div>
 
-				</div>
+				</div> -->
 
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12">

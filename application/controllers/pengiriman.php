@@ -9,7 +9,7 @@ class Pengiriman extends Admin_Controller
 	}
 	public function index()
 	{
-		$this->cekLoginStatus("staff gudang", true);
+		$this->cekLoginStatus("helper", true);
 
 		$data['title'] = "DATA PENGIRIMAN";
 		$data['layout'] = "pengiriman/index";
@@ -43,7 +43,7 @@ class Pengiriman extends Admin_Controller
 
 	public function manage($id = "")
 	{
-		$this->cekLoginStatus("staff gudang", true);
+		$this->cekLoginStatus("helper", true);
 
 		$data['title'] = "FORM PESANAN";
 		$data['layout'] = "pengiriman/manage";
@@ -78,7 +78,7 @@ class Pengiriman extends Admin_Controller
 
 	public function save()
 	{
-		$this->cekLoginStatus("staff gudang", true);
+		$this->cekLoginStatus("helper", true);
 
 		$data = array();
 		$post = $this->input->post();
@@ -227,7 +227,7 @@ class Pengiriman extends Admin_Controller
 
 	public function delete($id = "")
 	{
-		$this->cekLoginStatus("staff gudang", true);
+		$this->cekLoginStatus("helper", true);
 
 		if (!empty($id)) {
 			$cek = $this->pengiriman_model->get_by("pg.id_pengiriman", $id, true);
@@ -282,7 +282,7 @@ class Pengiriman extends Admin_Controller
 
 	public  function cetak($id)
 	{
-		$this->cekLoginStatus("staff gudang", true);
+		$this->cekLoginStatus("helper", true);
 
 		$data['title'] = "CETAK PENGIRIMAN";
 		$data['layout'] = "pengiriman/cetak";
@@ -304,7 +304,7 @@ class Pengiriman extends Admin_Controller
 
 	public  function invoice($id)
 	{
-		$this->cekLoginStatus("staff gudang", true);
+		$this->cekLoginStatus("helper", true);
 
 		$data['title'] = "CETAK INVOICE";
 		$data['layout'] = "pengiriman/invoice";
@@ -326,7 +326,7 @@ class Pengiriman extends Admin_Controller
 
 	public function rekap()
 	{
-		$this->cekLoginStatus("finance", true);
+		$this->cekLoginStatus("CEO", true);
 
 		$data['title'] = "Laporan Pengiriman Barang";
 		$data['layout'] = "pengiriman/rekap";
@@ -362,7 +362,7 @@ class Pengiriman extends Admin_Controller
 
 	public function export($action, $data, $filter)
 	{
-		$this->cekLoginStatus("finance", true);
+		$this->cekLoginStatus("CEO", true);
 
 		$title = "Laporan Data Pengiriman Barang";
 		$file_name = $title . "_" . date("Y-m-d");
