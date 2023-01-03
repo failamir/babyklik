@@ -106,6 +106,7 @@ $CI = &get_instance();
 
           <?php endif; ?>
           <?php if ($CI->getStatus() == '3') : ?>
+            <li><a href="<?php echo site_url('kategori') ?>"><i class="fa fa-circle-o"></i> Kategori</a></li>
             <li><a href="<?php echo site_url('barang') ?>"><i class="fa fa-circle-o"></i> Barang</a></li>
           <?php endif; ?>
           <?php if ($CI->getStatus() == '3' || $CI->getStatus() == '1') : ?>

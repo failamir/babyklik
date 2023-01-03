@@ -1,3 +1,6 @@
+<?php
+$CI = &get_instance();
+?>
 <div class="content-wrapper master">
 	<section class="content-header">
 	  <h1>
@@ -31,7 +34,9 @@
 										<input type="text" class="form-control input-sm" id="keyword" placeholder="Keyword" name="keyword" value="<?php echo $this->input->get('keyword');?>">
 								  </div>
 									 <button type="submit" class="btn btn-primary btn-sm glyphicon glyphicon-search"></button>
+									 <?php if( $CI->getStatus() != 1): ?>
 									 <a href="<?php echo site_url("barang/manage")?>" class="btn btn-success btn-sm">add</a>
+									 <?php endif; ?>
 								</form>
 						</div>
 					</div>

@@ -82,7 +82,7 @@ class Pengirimanupdate extends CI_Controller {
 	
 	public function save()
 	{
-		// $this->cekLoginStatus("staff gudang",true);
+		// $this->cekLoginStatus("helper",true);
 		
 		$data = array();
 		$post = $this->input->post();
@@ -217,7 +217,7 @@ class Pengirimanupdate extends CI_Controller {
 
 	// public function bindex()
 	// {
-	// 	$this->cekLoginStatus("staff gudang",true);
+	// 	$this->cekLoginStatus("helper",true);
 		
 	// 	$data['title'] = "DATA PENGIRIMAN";
 	// 	$data['layout'] = "pengiriman/index";
@@ -251,7 +251,7 @@ class Pengirimanupdate extends CI_Controller {
 	
 	// public function manage($id = "")
 	// {
-	// 	$this->cekLoginStatus("staff gudang",true);
+	// 	$this->cekLoginStatus("helper",true);
 		
 	// 	$data['title'] = "FORM PENGIRIMAN";
 	// 	$data['layout'] = "pengiriman/manage";
@@ -286,7 +286,7 @@ class Pengirimanupdate extends CI_Controller {
 	
 	// public function save()
 	// {
-	// 	$this->cekLoginStatus("staff gudang",true);
+	// 	$this->cekLoginStatus("helper",true);
 		
 	// 	$data = array();
 	// 	$post = $this->input->post();
@@ -410,7 +410,7 @@ class Pengirimanupdate extends CI_Controller {
 	
 	// public function delete($id = "")
 	// {
-	// 	$this->cekLoginStatus("staff gudang",true);
+	// 	$this->cekLoginStatus("helper",true);
 		
 	// 	if(!empty($id))
 	// 	{
@@ -447,7 +447,7 @@ class Pengirimanupdate extends CI_Controller {
 	
 	// public  function cetak($id)
 	// {
-	// 	$this->cekLoginStatus("staff gudang",true);
+	// 	$this->cekLoginStatus("helper",true);
 		
 	// 	$data['title'] = "CETAK PENGIRIMAN";
 	// 	$data['layout'] = "pengiriman/cetak";
@@ -476,7 +476,7 @@ class Pengirimanupdate extends CI_Controller {
 	
 	// public function rekap()
 	// {
-	// 	$this->cekLoginStatus("finance",true);
+	// 	$this->cekLoginStatus("CEO",true);
 		
 	// 	$data['title'] = "Laporan Pengiriman Barang";
 	// 	$data['layout'] = "pengiriman/rekap";
@@ -515,7 +515,7 @@ class Pengirimanupdate extends CI_Controller {
 	
 	// public function export($action,$data,$filter)
 	// {
-	// 	$this->cekLoginStatus("finance",true);
+	// 	$this->cekLoginStatus("CEO",true);
 		
 	// 	$title = "Laporan Data Pengiriman Barang";
 	// 	$file_name = $title."_".date("Y-m-d");
