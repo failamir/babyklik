@@ -15,6 +15,7 @@
 |
 */
 $config['base_url']	= 'https://babyklik.vertizonetv.com';
+// $config['base_url']	= 'http://localhost/babyklik';
 
 /*
 |--------------------------------------------------------------------------

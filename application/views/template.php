@@ -87,23 +87,22 @@ $CI = &get_instance();
               <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa pull-right"></i>
             </a>
           </li>
-          <?php if ($CI->getStatus() == '1') : ?>
+          <?php if ($CI->getStatus() == '1' || $CI->getStatus() == '2') : ?>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-edit"></i> <span>Master</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
+              <?php if ($CI->getStatus() == '1') : ?>
                 <li><a href="<?php echo site_url('kategori') ?>"><i class="fa fa-circle-o"></i> Kategori</a></li>
                 <li><a href="<?php echo site_url('barang') ?>"><i class="fa fa-circle-o"></i> Barang</a></li>
                 <li><a href="<?php echo site_url('kurir') ?>"><i class="fa fa-circle-o"></i> Kurir</a></li>
                 <li><a href="<?php echo site_url('pelanggan') ?>"><i class="fa fa-circle-o"></i> Pelanggan</a></li>
+              <?php endif; ?>
                 <li><a href="<?php echo site_url('user') ?>"><i class="fa fa-circle-o"></i> User</a></li>
               </ul>
             </li>
-
-
-
           <?php endif; ?>
           <?php if ($CI->getStatus() == '3') : ?>
             <li><a href="<?php echo site_url('kategori') ?>"><i class="fa fa-circle-o"></i> Kategori</a></li>

@@ -6,7 +6,7 @@ class Kategori extends Admin_Controller {
         parent::__construct();
 		$this->load->model("kategori_model");
 		// $this->cekLoginStatus("admin",true);
-		// $this->cekLoginStatus("CEO",true);
+		// $this->cekLoginStatus("manager",true);
 		// $this->cekLoginStatus("helper",true);
     }
 	public function index()

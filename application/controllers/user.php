@@ -5,7 +5,7 @@ class User extends Admin_Controller {
     {
         parent::__construct();
 		$this->load->model("user_model");
-		$this->cekLoginStatus("admin",true);
+		$this->cekLoginStatus("admin" && "manager",true);
     }
 	
 	public function index()

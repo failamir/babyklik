@@ -25,7 +25,7 @@ class Admin_Controller extends CI_Controller
 		{
 			if($form == "admin" && $this->getStatus() == "1")
 				$status =  true;
-			else if ($form == "CEO" && ( $this->getStatus() == "2" || $this->getStatus() == "1" ))
+			else if ($form == "manager" && ( $this->getStatus() == "2" || $this->getStatus() == "1" ))
 				$status =  true;
 			else if ($form == "helper" && ( $this->getStatus() == "3" || $this->getStatus() == "1" ) )
 				$status =  true;

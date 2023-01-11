@@ -326,7 +326,7 @@ class Pengiriman extends Admin_Controller
 
 	public function rekap()
 	{
-		$this->cekLoginStatus("CEO", true);
+		$this->cekLoginStatus("manager", true);
 
 		$data['title'] = "Laporan Pengiriman Barang";
 		$data['layout'] = "pengiriman/rekap";
@@ -362,7 +362,7 @@ class Pengiriman extends Admin_Controller
 
 	public function export($action, $data, $filter)
 	{
-		$this->cekLoginStatus("CEO", true);
+		$this->cekLoginStatus("manager", true);
 
 		$title = "Laporan Data Pengiriman Barang";
 		$file_name = $title . "_" . date("Y-m-d");
