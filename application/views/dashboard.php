@@ -38,10 +38,10 @@
         var myLineChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ["Pengiriman", "Pelanggan", "DIKIRIM", "DITERIMA","DITOLAK","DITERIMA SEBAGIAN"],
+                labels: ["Pengiriman", "Pelanggan", "DIKIRIM", "DITERIMA","DITOLAK"],
                 datasets: [{
-                    data: [p, t, k, a, s, as],
-                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)", "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)","rgba(0, 150, 255, 0.5)","rgba(0, 200, 255, 0.5)"]
+                    data: [p, t, k, a, s],
+                    backgroundColor: ["rgba(255, 0, 0, 0.5)", "rgba(100, 255, 0, 0.5)", "rgba(200, 50, 255, 0.5)", "rgba(0, 100, 255, 0.5)","rgba(0, 150, 255, 0.5)"]
                 }]
             },
             options: {
